@@ -582,7 +582,9 @@
     <div class="snack-pill"><span>🍫</span> Schokolade</div>
   </div>
 
-  <div class="drinks-grid" style="margin-top: 1.5rem;">
+  <!-- Drinks -->
+  <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 1.5rem 0 0.75rem;">Drinks</div>
+  <div class="drinks-grid">
     <div class="drink-card">
       <span class="drink-emoji">🍺</span>
       <div class="drink-name">Bier & Selters</div>
@@ -606,6 +608,35 @@
     <div class="drink-card">
       <span class="drink-emoji">🧃</span>
       <div class="drink-name">Säfte & Tees</div>
+    </div>
+  </div>
+
+  <!-- Tabak -->
+  <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 1.5rem 0 0.75rem;">Tabak & Zubehör</div>
+  <div class="drinks-grid">
+    <div class="drink-card">
+      <span class="drink-emoji">🚬</span>
+      <div class="drink-name">Zigaretten</div>
+    </div>
+    <div class="drink-card">
+      <span class="drink-emoji">🌿</span>
+      <div class="drink-name">Drehtabak</div>
+    </div>
+    <div class="drink-card">
+      <span class="drink-emoji">💨</span>
+      <div class="drink-name">Vapes & E-Zigaretten</div>
+    </div>
+    <div class="drink-card">
+      <span class="drink-emoji">🫙</span>
+      <div class="drink-name">Nikotinbeutel</div>
+    </div>
+    <div class="drink-card">
+      <span class="drink-emoji">🔥</span>
+      <div class="drink-name">Feuerzeuge</div>
+    </div>
+    <div class="drink-card">
+      <span class="drink-emoji">📄</span>
+      <div class="drink-name">Papers & Filter</div>
     </div>
   </div>
 </section>
@@ -661,7 +692,24 @@
 <!-- INSTAGRAM -->
 <section class="insta-section fade-up" style="padding: 2rem 1.5rem;">
   <a class="insta-banner" href="https://www.instagram.com/cornerbros_darmstadt/" target="_blank">
-    <div class="insta-icon">📸</div>
+    <div class="insta-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5.5" fill="white"/>
+      <circle cx="12" cy="12" r="4.5" stroke="url(#ig)" stroke-width="1.8" fill="none"/>
+      <circle cx="17.2" cy="6.8" r="1.1" fill="url(#ig2)"/>
+      <defs>
+        <linearGradient id="ig" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#f09433"/>
+          <stop offset="40%" stop-color="#dc2743"/>
+          <stop offset="100%" stop-color="#bc1888"/>
+        </linearGradient>
+        <linearGradient id="ig2" x1="16" y1="8" x2="18" y2="6" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#dc2743"/>
+          <stop offset="100%" stop-color="#bc1888"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
     <div>
       <div class="insta-handle">@cornerbros_darmstadt</div>
       <div class="insta-sub">Folg uns auf Instagram</div>
@@ -674,7 +722,7 @@
 <footer>
   <strong>Corner Bro's</strong><br>
   Pützerstraße 1 · 64287 Darmstadt<br>
-  Mo–Do 7–1 Uhr · Fr–Sa 10–3 Uhr · So 10–23 Uhr<br><br>
+  Mo–Do 9–1 Uhr · Fr 9–3 Uhr · Sa 10–3 Uhr · So 14–20 Uhr<br><br>
   <span style="opacity: 0.4; font-size: 11px;">Website erstellt von Erik Simukov · Webdesign Darmstadt</span>
 </footer>
 
@@ -689,9 +737,10 @@
     const dot = badge.querySelector('.open-dot');
 
     let open = false;
-    if (day >= 1 && day <= 4) open = hour >= 7 || hour < 1;
-    else if (day === 5 || day === 6) open = hour >= 10 || hour < 3;
-    else if (day === 0) open = hour >= 10 && hour < 23;
+    if (day >= 1 && day <= 4) open = hour >= 9 || hour < 1;       // Mo–Do 09–01
+    else if (day === 5) open = hour >= 9 || hour < 3;              // Fr 09–03
+    else if (day === 6) open = hour >= 10 || hour < 3;             // Sa 10–03
+    else if (day === 0) open = hour >= 14 && hour < 20;            // So 14–20
 
     if (!open) {
       dot.style.background = '#E84A4A';
